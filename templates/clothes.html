@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <main class="flex-grow container mx-auto px-4 md:px-8 max-w-7xl mt-8">
+        <h1 class="text-4xl font-bold mb-8">Мужская одежда</h1>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Верхняя одежда -->
+            <a href="/clothes/outwear" class="block">
+                <div class="p-6 bg-white rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-semibold mb-2 text-gray-800">Верхняя одежда</h2>
+                    <p class="text-gray-600">Пальто, куртки, ветровки</p>
+                </div>
+            </a>
+            <!-- Обувь -->
+            <a href="/clothes/shoes" class="block">
+                <div class="p-6 bg-white rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-semibold mb-2 text-gray-800">Обувь</h2>
+                    <p class="text-gray-600">Ботинки, кроссовки</p>
+                </div>
+            </a>
+            <!-- Аксессуары -->
+            <a href="/clothes/accessories" class="block">
+                <div class="p-6 bg-white rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-semibold mb-2 text-gray-800">Аксессуары</h2>
+                    <p class="text-gray-600">Галстуки, ремни и перчатки</p>
+                </div>
+            </a>
+        </div>
+    </main>
+{% endblock %}

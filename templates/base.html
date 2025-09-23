@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROFLS - Интернет-магазин одежды</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+    {% block nav %}
+
+    <!-- Хедер -->
+    <header class="bg-white p-4 flex justify-between items-center shadow-md md:px-12">
+        <div class="text-xl font-bold">ROFLS :</div>
+        <nav class="hidden md:flex space-x-8 text-gray-700">
+            <a href="/" class="hover:text-black transition-colors">Главная</a>
+            <a href="/clothes" class="hover:text-black transition-colors">Мужская одежда</a>
+            <a href="/about%20us" class="hover:text-black transition-colors">О нас</a>
+            <a href="/contacts" class="hover:text-black transition-colors">Контакты</a>
+            <a href="/basket" class="hover:text-black transition-colors">Корзина</a>
+        </nav>
+    </header>
+
+
+    {% endblock %}
+
+    {% block content %}
+
+    {% endblock %}
+
+
+    <!-- Футер -->
+    <footer class="bg-gray-200 py-6 px-4 md:px-12 mt-auto">
+        <div
+            class="container mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-center text-sm text-gray-700">
+            <div class="text-xl font-bold mb-4 md:mb-0">ROFLS :</div>
+            <nav class="flex flex-col md:flex-row items-center md:space-x-8 space-y-2 md:space-y-0 text-center">
+                <a href="/" class="hover:text-black transition-colors">Главная</a>
+                <a href="/clothes" class="hover:text-black transition-colors">Мужская одежда</a>
+                <a href="/about%20us" class="hover:text-black transition-colors">О нас</a>
+                <a href="/contacts" class="hover:text-black transition-colors">Контакты</a>
+                <a href="/basket" class="hover:text-black transition-colors">Корзина</a>
+            </nav>
+        </div>
+    </footer>
+    </div>
+
+
+</body>
+
+</html>
