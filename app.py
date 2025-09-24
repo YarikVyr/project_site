@@ -1,24 +1,11 @@
 import sqlite3
-import datetime
 from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-# Подключение к базе данных
+# Подключение к базе данных 
 connection = sqlite3.connect('my_database.db', check_same_thread=False)
 cursor = connection.cursor()
-
-# Создаем таблицу для заявок
-cursor.execute('''
-    CREATE TABLE IF NOT EXISTS orders (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        "client name" TEXT,
-        "client number" TEXT,
-        "comment" TEXT,
-        product_id INTEGER
-    )
-''')
-connection.commit()
 
 # Словарь для перевода категорий из URL в названия в базе данных
 category_map = {
@@ -50,30 +37,36 @@ def index():
 # Маршрут для страницы категорий
 @app.route('/clothes/<category>')
 def show_category(category):
-    products = get_products_by_category(category)
-    category_name = category_map.get(category, 'Категория')
-    return render_template("category_page.html", shop = products, category_name = category_name)
+    # Get the Russian category name from the dictionary
+    russian_category = category_map.get(category, category)
+    products = get_products_by_category(russian_category)
+    return render_template("category_page.html", shop = products, category = russian_category)
 
-# Маршрут для страницы мужской одежды
+# Маршрут для страницы одежды
 @app.route('/clothes')
 def clothes():
     return render_template("clothes.html")
 
-# Обработка заявок
+# Настройки для заявки
 @app.route('/order', methods=['POST'])
 def handle_order():
     if request.method == 'POST':
         product_id = request.form.get('product_id')
         name = request.form.get('name')
         phone = request.form.get('phone')
-        
+
         cursor.execute(
             "INSERT INTO orders (`client name`, `client number`, `comment`, `product_id`) VALUES (?, ?, ?, ?)",
             (name, phone, 'Заявка на товар', product_id)
         )
         connection.commit()
-        
+
         return redirect(url_for('order_confirmation'))
+
+# Маршрут для формы заявки
+@app.route('/order_form/<int:product_id>')
+def show_order_form(product_id):
+    return render_template('order_form.html', product_id = product_id)
 
 @app.route('/order/confirmation')
 def order_confirmation():
@@ -84,9 +77,9 @@ def user_profile(username):
     return render_template('index.html', name = username)
 
 # Другие маршруты
-@app.route('/about us')
+@app.route('/about_us')
 def about_us():
-    return 'О нас'
+    return render_template('about_us.html')
 
 @app.route('/contacts')
 def contacts():

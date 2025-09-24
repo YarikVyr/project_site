@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="flex-grow container mx-auto p-4 md:p-8 max-w-7xl">
+    <div class="bg-white p-6 md:p-12 rounded-lg shadow-lg">
+        <h1 class="text-3xl md:text-4xl font-bold mb-8">История компании:</h1>
+
+        <!-- Блок 1 -->
+        <div class="flex flex-col md:flex-row items-center md:space-x-8 mb-12">
+            <div class="md:w-1/2 mb-6 md:mb-0">
+                <img src="{{ url_for('static', filename = 'img/ulybausiisa-molodoi-biznesmen-glada-na-kameru-razrabotka-prilozenii.jpg') }}"
+                     alt="Улыбающийся бизнесмен"
+                     class="w-full h-auto object-cover rounded-lg">
+            </div>
+            <div class="md:w-1/2">
+                <p class="text-gray-700 text-lg">
+                    "Rofls" было создано группой предпринимателей, которых объединяло стремление изменить привычный взгляд на одежду. Для них вещи всегда были чем-то большим, чем просто ткань или аксессуар: это способ самовыражения, возможность показать индивидуальность и рассказать о себе без слов. Именно с этой идеи и началась история бренда.
+                </p>
+            </div>
+        </div>
+
+        <!-- Блок 2 -->
+        <div class="flex flex-col md:flex-row items-center md:space-x-8">
+            <div class="md:w-1/2 order-2 md:order-1">
+                <p class="text-gray-700 text-lg">
+                    Основатели поставили перед собой задачу создать магазин, который сочетает в себе удобство покупки и стильную подачу. Они стремились, чтобы каждый клиент чувствовал, что приобретает не просто продукт, а тщательно продуманную деталь образа. Важным стало внимание к деталям — от дизайна до качества обслуживания, чтобы процесс выбора был таким же приятным, как и результат.
+                </p>
+            </div>
+            <div class="md:w-1/2 order-1 md:order-2 mb-6 md:mb-0">
+                <img src="{{ url_for('static', filename = 'img/vid-speredi-molodoi-muzcina-v-beloi-futbolke-i-krasocnom-pal-to-poziruet-i-pokazyvaet-svou-odezdu-na-rozovom-fone.jpg') }}"
+                     alt="Молодой мужчина в пальто"
+                     class="w-full h-auto object-cover rounded-lg">
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
