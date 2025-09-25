@@ -13,7 +13,7 @@
                 <img src="{{ url_for('static', filename='img/' + (item.get('image link') or 'placeholder.jpg')) }}"
                      alt="{{ item.get('clothes name', 'Неизвестный товар') }}"
                      class="w-full aspect-[2/3] rounded-md mb-2 object-cover">
-                <h3 class="font-semibold text-lg">{{ item.get('clothes name', 'Неизвестный товар') }}</h3>
+                <h3 class="font-semibold text-lg">{{ item.get('clothes name') }}</h3>
                 <p class="text-gray-600 mb-4">{{ item.get('price', 'N/A') }} ₽</p>
                 <a href="{{ url_for('show_order_form', product_id=item.get('id', '')) }}"
                    class="inline-block bg-[#EE9732] hover:bg-[#D4892E] text-white font-bold py-2 px-6 rounded-full transition-colors">

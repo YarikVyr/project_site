@@ -38,9 +38,9 @@ def index():
 @app.route('/clothes/<category>')
 def show_category(category):
     # Get the Russian category name from the dictionary
-    russian_category = category_map.get(category, category)
-    products = get_products_by_category(russian_category)
-    return render_template("category_page.html", shop = products, category = russian_category)
+    category = category_map.get(category, category)
+    products = get_products_by_category(category)
+    return render_template("category_page.html", shop = products, category = category)
 
 # Маршрут для страницы одежды
 @app.route('/clothes')
@@ -88,3 +88,4 @@ def contacts():
 if __name__ == '__main__':
     print("Сервер запущен")
     app.run(debug=True)
+

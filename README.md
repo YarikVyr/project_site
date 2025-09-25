@@ -1,26 +1,33 @@
 # Магазин одежды ROFLS
 
-## Скачивание
+## Название проекта
+
+* это магазин яркой одежды, чтобы выделится в толпе
+* этот сайт позволяет выбирать и покупать одежду
+
+## Запуск проекта
+
+**Скачивание**
 
 ```bash
 git clone https://github.com/YarikVyr/Project.git
 ```
 
-## Библиотеки
+**Библиотеки**
 
 ```bash
 pip install Flask
 pip install sqlite3
 ```
 
-## Инициализация библиотек
+**Инициализация библиотек**
 
 ```bash
 import sqlite3
 from flask import Flask, render_template, request, redirect, url_for
 ```
 
-## Запуск проекта
+**Запуск проекта**
 
 ```bash
 cd {путь маршрут до папки} phyton3 run app.py
